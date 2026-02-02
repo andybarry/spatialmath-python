@@ -45,7 +45,7 @@ from spatialmath.base.transformsNd import (
     Ab2M,
 )
 from spatialmath.base.quaternions import r2q, q2r, qeye, qslerp
-from spatialmath.base.graphics import plotvol3, axes_logic
+#from spatialmath.base.graphics import plotvol3, axes_logic
 from spatialmath.base.animate import Animate
 import spatialmath.base.symbolic as sym
 

@@ -12,7 +12,7 @@ from scipy.interpolate import BSpline
 from spatialmath import SE3
 import numpy as np
 import matplotlib.pyplot as plt
-from spatialmath.base.transforms3d import tranimate, trplot
+#from spatialmath.base.transforms3d import tranimate, trplot
 
 
 class BSplineSE3:
