@@ -770,7 +770,7 @@ def qslerp(
     q0: ArrayLike4,
     q1: ArrayLike4,
     s: float,
-    shortest: Optional[bool] = False,
+    shortest: Optional[bool] = True,
     tol: float = 20,
 ) -> UnitQuaternionArray:
     """
@@ -782,7 +782,7 @@ def qslerp(
     :type q1: array_like(4)
     :arg s: interpolation coefficient in the range [0,1]
     :type s: float
-    :arg shortest: choose shortest distance [default False]
+    :arg shortest: choose shortest distance [default True]
     :type shortest: bool
     :param tol: Tolerance when checking for identical quaternions, in multiples of eps, defaults to 20
     :type tol: float, optional
