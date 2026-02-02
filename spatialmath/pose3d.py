@@ -38,6 +38,11 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from spatialmath.quaternion import UnitQuaternion
 
+# Tolerance for checking if a matrix is a valid SO(3) or SE(3) matrix.
+# tol is in units of eps for checking the distance to orthonormality
+# of the rotation submatrix. See isR() in transformsNd.py for more details.
+CHECK_TOL = 1000
+
 # ============================== SO3 =====================================#
 
 
@@ -357,7 +362,7 @@ class SO3(BasePoseMatrix):
 
         :seealso: :func:`~spatialmath.base.transform3d.isrot`
         """
-        return smb.isrot(x, check=True)
+        return smb.isrot(x, tol=CHECK_TOL, check=True)
 
     # ---------------- variant constructors ---------------------------------- #
 
@@ -1367,7 +1372,7 @@ class SE3(SO3):
 
         :seealso: :func:`~spatialmath.base.transforms3d.ishom`
         """
-        return smb.ishom(x, check=check)
+        return smb.ishom(x, tol=CHECK_TOL, check=check)
 
     # ---------------- variant constructors ---------------------------------- #
 
@@ -1973,7 +1978,7 @@ class SE3(SO3):
         """
         if isinstance(R, SO3):
             R = R.A
-        elif smb.isrot(R, check=check):
+        elif smb.isrot(R, tol=CHECK_TOL, check=check):
             pass
         else:
             raise ValueError("expecting SO3 or rotation matrix")
